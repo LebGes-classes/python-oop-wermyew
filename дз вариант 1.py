@@ -3,7 +3,6 @@ class Book:
     Класс описывает книгу
     """
 
-
     def __init__(self, name: str='Неизвестно', author: str='Неизвестно', pages_number: int=0) -> None:
         """
         Инициализация книги.
@@ -28,30 +27,32 @@ class Book:
 
             raise
 
-
     def get_name(self) -> str:
         """
-        возвращает название книги
+        Возвращает название книги
+
+        :return: str: Название книги
         """
 
         return self.__name
 
-
     def get_author(self) -> str:
         """
-        возвращает автора
+        Возвращает пседвоним автора
+
+        :return: str: Псевдоним автора
         """
 
         return self.__author
 
-
     def get_pages_number(self) -> int:
         """
-        возвращает количество страниц в книге
+        Возвращает количество страниц в книге
+
+        :return: int: Количество страниц в книге
         """
 
         return self.__pages_number
-
 
     def set_author(self, author) -> None:
         """
@@ -65,7 +66,6 @@ class Book:
         else:
             print('Автор не может быть пустым')
 
-
     def set_name(self, name) -> None:
         """
         меняет название книги, на значение, введённое пользователем
@@ -77,7 +77,6 @@ class Book:
             self.__name = name
         else:
             print('Название не может быть пустым')
-
 
     def set_pages_number(self, pages_number) -> None:
         """
@@ -92,7 +91,6 @@ class Book:
             print('Количество страниц должно быть больше 0')
             self.__pages_number = 0
 
-
     def info(self) -> None:
         """
         выводит всю информацию о книге
@@ -103,17 +101,17 @@ class Book:
         print(f'Автор: {self.__author}')
         print(f'Количество страниц: {self.__pages_number}')
 
-
     def get_page_info(self, page_number: int) -> str:
         """
         возвращает информацию о конкретной странице
 
         :param page_number: количество страниц в книге
+
+        :return: str: Информация о конкретной странице
         """
 
         return f'{page_number}-ья страница.' if page_number % 10 == 3 and page_number != 13 \
         else f'{page_number}-ая страница.'
-
 
     def time_to_read(self, speed: int=20) -> str:
         """
@@ -121,16 +119,19 @@ class Book:
         заданной пользователем (по умолчанию - 20)
 
         :param speed: скорость чтения книги (например, 20 страниц в час)
+
+        :return: str: Время чтения книги
         """
 
         hours = self.__pages_number / speed
 
         return f'Чтобы прочитать книгу, вам понадобится {hours:.1f} ч'
 
-
     def thick_book(self) -> str:
         """
-        взвращает размерность книги (большая или небольшая)
+        взвращает размер книги (большая или небольшая)
+
+        :return: str: Размер книги
         """
 
         return 'Книга большая' if self.__pages_number > 200 else 'Книга небольшая'
@@ -140,7 +141,6 @@ class Main:
     """
     Класс тестов
     """
-
 
     def test_empty_book() -> None:
         """Тест создания книги с ошибкой"""
@@ -162,7 +162,6 @@ class Main:
 
         except ValueError:
             print("Программа остановлена из-за ошибки создания книги")
-
 
     def test_book_operations() -> None:
         """Тест операций с книгой"""
@@ -194,7 +193,6 @@ class Main:
         print(f"Финальный автор: {book2.get_author()}")
         print(f"Финальное количество страниц: {book2.get_pages_number()}")
 
-
     def run() -> None:
         """Основной метод запуска тестов"""
 
@@ -212,14 +210,12 @@ class BookManager:
     Класс-меню для класса Book
     """
 
-
     def __init__(self) -> None:
         """
         Инициализация книги
         """
 
         self.current_book = None
-
 
     def menu(self) -> None:
         """
@@ -251,7 +247,6 @@ class BookManager:
             else:
                 print("Неверный выбор!")
 
-
     def create_book(self) -> None:
         """
         Создаёт книгу (1)
@@ -264,7 +259,6 @@ class BookManager:
 
         print("Книга создана!")
 
-
     def show_book_info(self) -> None:
         """
         Показывает информацию о книге(2)
@@ -274,7 +268,6 @@ class BookManager:
             self.current_book.info()
         else:
             print("Сначала создайте книгу!")
-
 
     def modify_book(self) -> None:
         """
@@ -291,7 +284,6 @@ class BookManager:
             print("Книга изменена!")
         else:
             print("Сначала создайте книгу!")
-
 
     def calculate_time(self) -> None:
         """
@@ -311,7 +303,6 @@ class BookManager:
 
         else:
             print("Сначала создайте книгу!")
-
 
 if __name__ == "__main__":
     # Сначала демонстрация тестов
